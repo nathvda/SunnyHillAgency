@@ -7,6 +7,9 @@ import About from './About.tsx';
 import Product from './Product.tsx';
 import Greetings from './Greetings.tsx';
 import Form from './Form.tsx';
+import StepOne from './FormSteps/StepOne.tsx';
+import StepTwo from './FormSteps/StepTwo.tsx';
+import StepThree from './FormSteps/StepThree.tsx';
 
 
 const router = createBrowserRouter(
@@ -16,7 +19,11 @@ const router = createBrowserRouter(
       <Route index element={<Greetings/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/product" element={<Product/>}/>
-      <Route path="/form" element={<Form/>}></Route>
+      <Route path="/form" element={<Form/>}>
+        <Route path="/form/step-one" element={<StepOne/>}/>
+        <Route path="/form/step-two" element={<StepTwo/>}/>
+        <Route path="/form/step-three" element={<StepThree/>}/>
+      </Route>
     </Route>
     
     </>

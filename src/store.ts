@@ -7,7 +7,7 @@ interface FormState{
     }
 }
 
-const useFormStore = create<FormState>()(
+export const useFormStore = create<FormState>()(
     devtools(
         persist(
             (set) => ({
