@@ -3,15 +3,20 @@ import { devtools, persist } from 'zustand/middleware';
 
 interface FormState{
     form:{
-        name: string
-    }
+        firstName:string
+        lastName:string
+      }
 }
 
 export const useFormStore = create<FormState>()(
     devtools(
         persist(
             (set) => ({
-                form:{name:"hello"}
+                form:{
+                    firstName:"coucou",
+                    lastName:"bye"
+                }
+
             }),{
              name: 'idk'   
             }

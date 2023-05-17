@@ -10,6 +10,7 @@ import Form from './Form.tsx';
 import StepOne from './FormSteps/StepOne.tsx';
 import StepTwo from './FormSteps/StepTwo.tsx';
 import StepThree from './FormSteps/StepThree.tsx';
+import Error404 from './Error404.tsx';
 
 
 const router = createBrowserRouter(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
         <Route path="/form/step-three" element={<StepThree/>}/>
       </Route>
     </Route>
+    <Route path="*" element={<Error404/>}/>
     
     </>
   )
