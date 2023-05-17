@@ -5,8 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-background': "url('./sunset.webp')"
+    }
   },
   plugins: [],
+}
 }
 

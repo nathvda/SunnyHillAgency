@@ -27,8 +27,9 @@ const router = createBrowserRouter(
         <Route path="/form/step-two" element={<StepTwo/>}/>
         <Route path="/form/step-three" element={<StepThree/>}/>
       </Route>
+      <Route path="*" element={<Error404/>}/>
     </Route>
-    <Route path="*" element={<Error404/>}/>
+    
     
     </>
   )
