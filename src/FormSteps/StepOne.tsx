@@ -19,7 +19,7 @@ const resolver: Resolver<FormValues> = async (values) => {
           },
         }
       : {},
-  };
+  }
 };
 
 const StepOne = () => {
@@ -47,7 +47,7 @@ const StepOne = () => {
 
         <div>
           <label htmlFor="firstName">Prénom</label>
-          <input {...register("firstName")} placeholder="John" />
+          <input {...register("firstName")} placeholder="John"/>
           {errors?.firstName && <p>{errors.firstName.message}</p>}
         </div>
 
@@ -62,7 +62,7 @@ const StepOne = () => {
           <input type="date" {...register("dateOfBirth")} />
           {errors?.lastName && <p>{errors.lastName.message}</p>}
         </div>
-        <button onClick={() => goBack()} type="button">back</button><button type="submit">next</button>
+       <button type="submit">next</button>
       </form>
     </div>
   );

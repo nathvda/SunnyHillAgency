@@ -12,8 +12,8 @@ interface FormState {
 
 
 export const useFormStore = create<FormState & Action>((set) => ({
-                    firstName:"coucou",
-                    lastName:"bye",
+                    firstName:"",
+                    lastName:"",
                 updateFirstName: (firstName) => 
                     set(() => ({firstName:firstName}))
                 ,
