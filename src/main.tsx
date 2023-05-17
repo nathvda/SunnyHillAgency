@@ -11,6 +11,7 @@ import StepOne from './FormSteps/StepOne.tsx';
 import StepTwo from './FormSteps/StepTwo.tsx';
 import StepThree from './FormSteps/StepThree.tsx';
 import Error404 from './Error404.tsx';
+import FAQ from './FAQ.tsx';
 
 
 const router = createBrowserRouter(
@@ -20,8 +21,9 @@ const router = createBrowserRouter(
       <Route index element={<Greetings/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/product" element={<Product/>}/>
+      <Route path="/faq" element={<FAQ/>}/>
       <Route path="/form" element={<Form/>}>
-        <Route path="/form/step-one" element={<StepOne/>}/>
+        <Route index element={<StepOne/>}/>
         <Route path="/form/step-two" element={<StepTwo/>}/>
         <Route path="/form/step-three" element={<StepThree/>}/>
       </Route>

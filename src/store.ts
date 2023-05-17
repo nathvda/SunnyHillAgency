@@ -1,25 +1,23 @@
 import { create } from "zustand";
-import { devtools, persist } from 'zustand/middleware';
 
-interface FormState{
-    form:{
+interface FormState {
         firstName:string
         lastName:string
-      }
-}
+    }
 
-export const useFormStore = create<FormState>()(
-    devtools(
-        persist(
-            (set) => ({
-                form:{
+     type Action = {
+        updateFirstName: (firstName : FormState['firstName']) => void
+        updateLastName: (lastName : FormState['lastName']) => void
+    }
+
+
+export const useFormStore = create<FormState & Action>((set) => ({
                     firstName:"coucou",
-                    lastName:"bye"
-                }
-
-            }),{
-             name: 'idk'   
-            }
-        )
-    )
-)
+                    lastName:"bye",
+                updateFirstName: (firstName) => 
+                    set(() => ({firstName:firstName}))
+                ,
+                updateLastName : (lastName) =>
+                    set(() => ({lastName:lastName}))
+                ,
+            }))
