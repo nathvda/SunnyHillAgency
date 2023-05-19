@@ -3,7 +3,7 @@ import { GiStripedSun } from 'react-icons/gi';
 
 const Navigation = () => {
     return (
-        <div className="border-b border-gray-100 p-4 flex justify-between">
+        <div className="border-b border-gray-100 p-4 flex justify-between lg:justify-start lg:gap-10">
             <Link to="/"><GiStripedSun/></Link>
             <NavLink to="/">Accueil</NavLink>
             <NavLink to="/product">Notre offre</NavLink>

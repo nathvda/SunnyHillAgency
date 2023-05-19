@@ -20,10 +20,10 @@ const QUESTIONS = [
 
 const Faq = () => {
   return (
-    <div className="p-8 text-sm flex-col gap-2">
+    <div className="p-8 text-sm flex-col gap-2 flex">
       {QUESTIONS.map((a) => (
         <Disclosure>
-          <Disclosure.Button className="bg-orange-100 p-8">
+          <Disclosure.Button className="border border-gray-100 p-8 rounded-md shadow-sm border-b-red-600 border-b-2">
             <AiFillQuestionCircle /> {a.question}
           </Disclosure.Button>
           <Disclosure.Panel className="bg-orange-400 p-8">
