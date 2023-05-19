@@ -5,6 +5,7 @@ interface FormState {
         lastName:string
         dateOfBirth:string
         codePromo:string
+        placeOfBirth:string
     }
 
      type Action = {
@@ -12,6 +13,7 @@ interface FormState {
         updateLastName: (lastName : FormState['lastName']) => void
         updateDateOfBirth: (date : FormState['dateOfBirth']) => void
         updateCodePromo: (codePromo : FormState['codePromo']) => void
+        updatePlaceOfBirth: (placeOfBirth : FormState['placeOfBirth']) => void
     }
 
 
@@ -20,6 +22,7 @@ export const useFormStore = create<FormState & Action>((set) => ({
                     lastName:"",
                     dateOfBirth:"",
                     codePromo:"",
+                    placeOfBirth:"",
                 updateFirstName: (firstName) => 
                     set(() => ({firstName:firstName}))
                 ,
@@ -29,7 +32,10 @@ export const useFormStore = create<FormState & Action>((set) => ({
                 updateDateOfBirth : (date) =>
                     set(() => ({dateOfBirth:date}))
                 ,
+                updatePlaceOfBirth : (place) =>
+                set(() => ({placeOfBirth:place}))
+                ,
                 updateCodePromo : (code) =>
                 set(() => ({codePromo:code}))
-            ,
+                ,
             }))

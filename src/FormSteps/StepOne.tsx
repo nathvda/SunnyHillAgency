@@ -13,7 +13,6 @@ const firstSchema = z
   placeOfBirth:z.string().min(1,{message: "Veuillez entrer un lieu de naissance"})
 });
 
-
 type FormValues = {
   firstName: string
   lastName: string
@@ -33,7 +32,6 @@ const StepOne = () => {
   const [dateOfBirth,updateDateOfBirth] = useFormStore(
     (state) => [state.dateOfBirth, state.updateDateOfBirth]
   )
-
   const [placeOfBirth,updatePlaceOfBirth] = useFormStore(
     (state) => [state.placeOfBirth, state.updatePlaceOfBirth]
   )
