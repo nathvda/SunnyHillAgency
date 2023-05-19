@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useFormStore } from "../store";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Submit from "../Submit";
 
 const firstSchema = z
 .object({
@@ -47,34 +48,38 @@ const StepOne = () => {
   });
 
   return (
-    <div className="bg-hero-background bg-cover">
-      <form className="p-8 border border-red-100 bg-white bg-opacity-10 w-1/2 mb-2 mt-2 m-auto backdrop-blur-md" onSubmit={onSubmit}>
-        <h2>Dites-nous en plus</h2>
+    <div  className="bg-white text-black flex-grow flex-col p-4 rounded-lg w-full m-auto">
+     <h2 className="text-3xl font-bold ml-8">Dites-nous en plus</h2> 
+      <form className="bg-white bg-opacity-10 mb-2 mt-2 m-auto backdrop-blur-md flex-col gap-4" onSubmit={onSubmit}>
+        
 
-        <div>
+        <div className="border-b pt-4 pb-4 flex justify-between">
           <label htmlFor="firstName">Prénom</label>
           <input {...register("firstName")} placeholder="John" defaultValue={firstName}/>
-          {errors?.firstName && <p className="text-red-800">{errors.firstName.message}</p>}
         </div>
+        {errors?.firstName && <p className="text-red-800">{errors.firstName.message}</p>}
 
-        <div>
+
+        <div className="border-b pt-4 pb-4 flex justify-between">
           <label htmlFor="lastName">Nom</label>
           <input {...register("lastName")} placeholder="Doe" defaultValue={lastName} />
-          {errors?.lastName && <p className="text-red-800">{errors.lastName.message}</p>}
         </div>
+        {errors?.lastName && <p className="text-red-800">{errors.lastName.message}</p>}
 
-        <div>
+        <div className="border-b pt-4 pb-4 flex justify-between">
           <label htmlFor="dateOfBirth">Date de naissance</label>
           <input type="date" {...register("dateOfBirth")} defaultValue={dateOfBirth} />
-          {errors?.dateOfBirth && <p className="text-red-800">{errors.dateOfBirth.message}</p>}
         </div>
+        {errors?.dateOfBirth && <p className="text-red-800">{errors.dateOfBirth.message}</p>}
 
-        <div>
+
+        <div className="border-b pt-4 pb-4 flex justify-between">
           <label htmlFor="placeOfBirth">Lieu de naissance</label>
           <input type="text" {...register("placeOfBirth")} placeholder="Thuillies" />
-          {errors?.placeOfBirth && <p className="text-red-800">{errors.placeOfBirth.message}</p>}
         </div>
-        <button type="submit">Suivant</button>
+        {errors?.placeOfBirth && <p className="text-red-800">{errors.placeOfBirth.message}</p>}
+
+        <Submit/>
       </form>
     </div>
   );

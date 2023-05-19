@@ -5,6 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Listbox } from "@headlessui/react";
 import { useQuery, gql } from "@apollo/client";
+import Submit from "../Submit";
 
 const secondSchema = z.object({
   reasonForTravelling: z
@@ -57,6 +58,10 @@ const StepTwo = () => {
     console.log(data);
     navigate("/form/step-three", { replace: true });
   });
+
+  const PreviousStep = () => {
+    navigate("/form", {replace:true})
+  }
 
   if (loading) return <p>error</p>;
   if (error) return <p>Oh No</p>;
@@ -114,7 +119,8 @@ const StepTwo = () => {
             <p className="text-red-800">{errors.sender.message}</p>
           )}
         </div>
-        <button type="submit">Suivant</button>
+        <button className="flex bg-slate-400 text-white p-4 mt-4 rounded-md md:w-44" onClick={() => PreviousStep()}>Précédent</button>
+       <Submit/>
       </form>
     </div>
   );
