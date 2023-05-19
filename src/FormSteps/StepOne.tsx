@@ -47,8 +47,8 @@ const StepOne = () => {
   });
 
   return (
-    <div>
-      <form className="p-8 border border-red-100" onSubmit={onSubmit}>
+    <div className="bg-hero-background h-full">
+      <form className="p-8 border border-red-100 bg-white bg-opacity-10 w-1/2 mb-2 mt-2 m-auto backdrop-blur-md" onSubmit={onSubmit}>
         <h2>Dites-nous en plus</h2>
 
         <div>
@@ -74,7 +74,7 @@ const StepOne = () => {
           <input type="text" {...register("placeOfBirth")} placeholder="Thuillies" />
           {errors?.placeOfBirth && <p className="text-red-800">{errors.placeOfBirth.message}</p>}
         </div>
-       <button type="submit">Suivant</button>
+        <button type="submit">Suivant</button>
       </form>
     </div>
   );
