@@ -46,9 +46,9 @@ const StepTwo = () => {
   const {
     control,
     handleSubmit,
+    register,
     formState: { errors },
   } = useForm<FormValues>({
-    mode: "onChange",
     resolver: zodResolver(secondSchema),
   });
   const onSubmit = handleSubmit((data) => {
@@ -57,16 +57,21 @@ const StepTwo = () => {
   });
 
   const PreviousStep = () => {
-    navigate("/form", {replace:true})
-  }
+    navigate("/form", { replace: true });
+  };
 
   // if (loading) return <p>error</p>;
   // if (error) return <p>Oh No</p>;
 
   return (
-    <div className="bg-white text-black flex-grow flex-col p-4 rounded-lg w-full m-auto">
-      <div className="flex gap-4 justify-center"><div className="w-4 h-4 bg-red-300 rounded-lg"></div><div className="w-4 h-4 rounded-lg bg-red-300"></div><div className="w-4 h-4 rounded-lg bg-gray-300"></div></div>
-      <h2 className="text-3xl font-bold ml-8">Pourquoi voyagez-vous?</h2> 
+    <div className="bg-white text-black flex-grow flex-col p-4 rounded-lg lg:w-1/2 m-auto">
+      <div className="flex gap-4 justify-center">
+        <div className="w-4 h-4 bg-red-300 rounded-lg"></div>
+        <div className="w-4 h-4 rounded-lg bg-red-300"></div>
+        <div className="w-4 h-4 rounded-lg bg-gray-300"></div>
+        <div className="w-4 h-4 rounded-lg bg-gray-300"></div>
+      </div>
+      <h2 className="text-3xl font-bold ml-8">Pourquoi voyagez-vous?</h2>
       <form onSubmit={onSubmit}>
         <div>
           <Controller
@@ -87,7 +92,7 @@ const StepTwo = () => {
                 </Listbox.Options>
               </Listbox>
             )}
-            name="reasonForTravelling"
+            {...register("reasonForTravelling")}
             control={control}
           />
           {errors?.reasonForTravelling && (
@@ -109,7 +114,7 @@ const StepTwo = () => {
                 </Listbox.Options>
               </Listbox>
             )}
-            name="sender"
+            {...register("sender")}
             control={control}
           />
 
@@ -118,9 +123,14 @@ const StepTwo = () => {
           )}
         </div>
         <div className="flex gap-8 justify-end">
-        <button className="flex bg-slate-400 text-white p-4 mt-4 rounded-md md:w-44" onClick={() => PreviousStep()}>Précédent</button>
-       <Submit/>
-       </div>
+          <button
+            className="flex bg-slate-400 text-white p-4 mt-4 rounded-md md:w-44"
+            onClick={() => PreviousStep()}
+          >
+            Précédent
+          </button>
+          <Submit />
+        </div>
       </form>
     </div>
   );

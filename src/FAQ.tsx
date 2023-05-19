@@ -23,10 +23,10 @@ const Faq = () => {
     <div className="p-8 text-sm flex-col gap-2 flex">
       {QUESTIONS.map((a) => (
         <Disclosure>
-          <Disclosure.Button className="border border-gray-100 p-8 rounded-md shadow-sm border-b-red-600 border-b-2">
+          <Disclosure.Button className="border border-gray-100 p-8 rounded-md shadow-sm border-b-red-600 border-b-2 lg:text-xl lg:flex lg:items-center lg:gap-8">
             <AiFillQuestionCircle /> {a.question}
           </Disclosure.Button>
-          <Disclosure.Panel className="bg-orange-400 p-8">
+          <Disclosure.Panel className="bg-gray-100 p-8  lg:text-xl">
             {a.answer}
           </Disclosure.Panel>
         </Disclosure>

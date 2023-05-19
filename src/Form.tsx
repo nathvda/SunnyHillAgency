@@ -11,6 +11,7 @@ const Form = () => {
             <Link to="/form/">1</Link>
             <Link to="/form/step-two">2</Link>
             <Link to="/form/step-three">3</Link>
+            <Link to="/form/step-four">4</Link>
             </div>
             <Outlet/>
         </div>
