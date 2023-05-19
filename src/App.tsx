@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 function App() {
 
   return (
-    <div className="flex flex-col justify-between min-h-screen">
+    <div className="flex flex-col justify-start min-h-screen">
     <Navigation/>
     <Outlet/>
     <Footer/>

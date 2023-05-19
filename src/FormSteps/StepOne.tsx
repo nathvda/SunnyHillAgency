@@ -26,6 +26,12 @@ const StepOne = () => {
   const [firstName,updateFirstName] = useFormStore(
     (state) => [state.firstName, state.updateFirstName]
   )
+  const [lastName,updateLastName] = useFormStore(
+    (state) => [state.lastName, state.updateLastName]
+  )
+  const [dateOfBirth,updateDateOfBirth] = useFormStore(
+    (state) => [state.dateOfBirth, state.updateDateOfBirth]
+  )
 
   const {
     register,
@@ -35,6 +41,8 @@ const StepOne = () => {
   const onSubmit = handleSubmit((data) => {
     console.log(data);
     updateFirstName(data.firstName);
+    updateLastName(data.lastName);
+    updateDateOfBirth(data.dateOfBirth);
     navigate("/form/step-two", { replace: true });
   });
 
@@ -51,13 +59,13 @@ const StepOne = () => {
 
         <div>
           <label htmlFor="lastName">Nom</label>
-          <input {...register("lastName")} placeholder="Doe" />
+          <input {...register("lastName")} placeholder="Doe" defaultValue={lastName} />
           {errors?.lastName && <p className="text-red-800">{errors.lastName.message}</p>}
         </div>
 
         <div>
           <label htmlFor="dateOfBirth">Date de naissance</label>
-          <input type="date" {...register("dateOfBirth")} />
+          <input type="date" {...register("dateOfBirth")} defaultValue={dateOfBirth} />
           {errors?.dateOfBirth && <p className="text-red-800">{errors.dateOfBirth.message}</p>}
         </div>
 
