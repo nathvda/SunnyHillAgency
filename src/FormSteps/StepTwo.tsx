@@ -46,7 +46,6 @@ const StepTwo = () => {
   console.log(data);
 
   const {
-    register,
     control,
     handleSubmit,
     formState: { errors },
@@ -119,8 +118,10 @@ const StepTwo = () => {
             <p className="text-red-800">{errors.sender.message}</p>
           )}
         </div>
+        <div className="flex gap-8 justify-end">
         <button className="flex bg-slate-400 text-white p-4 mt-4 rounded-md md:w-44" onClick={() => PreviousStep()}>Précédent</button>
        <Submit/>
+       </div>
       </form>
     </div>
   );

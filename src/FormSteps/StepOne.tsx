@@ -48,8 +48,8 @@ const StepOne = () => {
   });
 
   return (
-    <div  className="bg-white text-black flex-grow flex-col p-4 rounded-lg w-full m-auto">
-     <h2 className="text-3xl font-bold ml-8">Dites-nous en plus</h2> 
+    <div className="bg-white text-black flex-grow flex-col p-4 rounded-lg w-full m-auto">
+      <h2 className="text-3xl font-bold ml-8">Dites-nous en plus</h2> 
       <form className="bg-white bg-opacity-10 mb-2 mt-2 m-auto backdrop-blur-md flex-col gap-4" onSubmit={onSubmit}>
         
 
@@ -79,7 +79,9 @@ const StepOne = () => {
         </div>
         {errors?.placeOfBirth && <p className="text-red-800">{errors.placeOfBirth.message}</p>}
 
-        <Submit/>
+        <div className="flex gap-8 justify-end">
+          <Submit/>
+          </div>
       </form>
     </div>
   );
