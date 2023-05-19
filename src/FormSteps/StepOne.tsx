@@ -49,6 +49,7 @@ const StepOne = () => {
 
   return (
     <div className="bg-white text-black flex-grow flex-col p-4 rounded-lg w-full m-auto">
+      <div className="flex gap-4 justify-center"><div className="w-4 h-4 bg-red-300 rounded-lg"></div><div className="w-4 h-4 rounded-lg bg-gray-300"></div><div className="w-4 h-4 rounded-lg bg-gray-300"></div></div>
       <h2 className="text-3xl font-bold ml-8">Dites-nous en plus</h2> 
       <form className="bg-white bg-opacity-10 mb-2 mt-2 m-auto backdrop-blur-md flex-col gap-4" onSubmit={onSubmit}>
         

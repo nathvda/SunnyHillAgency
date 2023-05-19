@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Listbox } from "@headlessui/react";
-import { useQuery, gql } from "@apollo/client";
+// import { useQuery, gql } from "@apollo/client";
 import Submit from "../Submit";
 
 const secondSchema = z.object({
@@ -21,15 +21,15 @@ type FormValues = {
   sender: string;
 };
 
-const GET_NAMES = gql`
-  query GetNames {
-    characters {
-      results {
-        name
-      }
-    }
-  }
-`;
+// const GET_NAMES = gql`
+//   query GetNames {
+//     characters {
+//       results {
+//         name
+//       }
+//     }
+//   }
+// `;
 
 const options = [
   { id: 1, reason: "Curiosity", unavailable: false },
@@ -40,10 +40,8 @@ const options = [
 const StepTwo = () => {
   const navigate = useNavigate();
   const [selectedReason, setSelectedReason] = useState(options[0]);
-  const { loading, error, data } = useQuery(GET_NAMES);
+  // const { loading, error, data } = useQuery(GET_NAMES);
   const [selectedSender, setSelectedSender] = useState(options[0]);
-
-  console.log(data);
 
   const {
     control,
@@ -62,13 +60,14 @@ const StepTwo = () => {
     navigate("/form", {replace:true})
   }
 
-  if (loading) return <p>error</p>;
-  if (error) return <p>Oh No</p>;
+  // if (loading) return <p>error</p>;
+  // if (error) return <p>Oh No</p>;
 
   return (
-    <div>
+    <div className="bg-white text-black flex-grow flex-col p-4 rounded-lg w-full m-auto">
+      <div className="flex gap-4 justify-center"><div className="w-4 h-4 bg-red-300 rounded-lg"></div><div className="w-4 h-4 rounded-lg bg-red-300"></div><div className="w-4 h-4 rounded-lg bg-gray-300"></div></div>
+      <h2 className="text-3xl font-bold ml-8">Pourquoi voyagez-vous?</h2> 
       <form onSubmit={onSubmit}>
-        <h2>Vos raisons</h2>
         <div>
           <Controller
             render={() => (

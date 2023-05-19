@@ -1,5 +1,6 @@
-import { Tab } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import CallToAction from "./CallToAction";
+import { AiFillQuestionCircle } from "react-icons/ai";
 
 const QUESTIONS = [
   {
@@ -17,24 +18,22 @@ const QUESTIONS = [
   },
 ];
 
-const FAQ = () => {
+const Faq = () => {
   return (
-    <div className="p-8">
-      <Tab.Group>
-        <Tab.List className="bg-orange-100 p-8 flex gap-8">
-          {QUESTIONS.map((a) => (
-            <Tab className="bg-blue active:bg-orange-600">{a.question}</Tab>
-          ))}
-        </Tab.List>
-        <Tab.Panels className="bg-orange-400 p-8">
-          {QUESTIONS.map((a) => (
-            <Tab.Panel>{a.answer}</Tab.Panel>
-          ))}
-        </Tab.Panels>
-      </Tab.Group>
+    <div className="p-8 text-sm flex-col gap-2">
+      {QUESTIONS.map((a) => (
+        <Disclosure>
+          <Disclosure.Button className="bg-orange-100 p-8">
+            <AiFillQuestionCircle /> {a.question}
+          </Disclosure.Button>
+          <Disclosure.Panel className="bg-orange-400 p-8">
+            {a.answer}
+          </Disclosure.Panel>
+        </Disclosure>
+      ))}
       <CallToAction />
     </div>
   );
 };
 
-export default FAQ;
+export default Faq;

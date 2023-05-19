@@ -11,8 +11,9 @@ import StepOne from './FormSteps/StepOne.tsx';
 import StepTwo from './FormSteps/StepTwo.tsx';
 import StepThree from './FormSteps/StepThree.tsx';
 import Error404 from './Error404.tsx';
-import FAQ from './FAQ.tsx';
+
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import Faq from './FAQ.tsx';
 
 const client = new ApolloClient({
   uri: 'https://rickandmortyapi.com/graphql',
@@ -27,7 +28,7 @@ const router = createBrowserRouter(
       <Route index element={<Greetings/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/product" element={<Product/>}/>
-      <Route path="/faq" element={<FAQ/>}/>
+      <Route path="/faq" element={<Faq/>}/>
       <Route path="/form" element={<Form/>}>
         <Route index element={<StepOne/>}/>
         <Route path="/form/step-two" element={<StepTwo/>}/>
