@@ -17,11 +17,11 @@ const Footer = () => {
             <Link to="/about">Risques</Link>
             <Link to="/job">Plus</Link>
             </div>
-            <div className="flex flex-col border-t w-80 md:pl-8 md:border-l md:border-t-0 justify-center gap-4">
+            <div className="flex flex-col border-t mt-8 w-80 md:pl-8 md:border-l md:border-t-0 md:mt-0 justify-center gap-4">
             <div className="flex gap-2 items-center"><AiFillPhone/> +32 123 456 789</div>
             <div className="flex gap-2 items-center"><IoLocationSharp/> Quai Arthur Rimbaut, 501, Charleroi, Belgique</div>
             </div>
-        </div>
+            </div>
     );
 };
 
