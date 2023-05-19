@@ -6,7 +6,7 @@ const Form = () => {
     console.log(Form);
 
     return (
-        <div>
+        <div className="flex-grow">
             <div className="bg-red-100 p-8 flex justify-evenly">
             <Link to="/form/">1</Link>
             <Link to="/form/step-two">2</Link>

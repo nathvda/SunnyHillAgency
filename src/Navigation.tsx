@@ -1,8 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import { GiStripedSun } from 'react-icons/gi';
 
 const Navigation = () => {
     return (
         <div className="border-b border-gray-100 p-4 flex justify-between">
+            <Link to="/"><GiStripedSun/></Link>
             <NavLink to="/">Accueil</NavLink>
             <NavLink to="/product">Notre offre</NavLink>
             <NavLink to="/about">Qui sommes-nous?</NavLink>

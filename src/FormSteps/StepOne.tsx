@@ -47,7 +47,7 @@ const StepOne = () => {
   });
 
   return (
-    <div className="bg-hero-background h-full">
+    <div className="bg-hero-background bg-cover">
       <form className="p-8 border border-red-100 bg-white bg-opacity-10 w-1/2 mb-2 mt-2 m-auto backdrop-blur-md" onSubmit={onSubmit}>
         <h2>Dites-nous en plus</h2>
 

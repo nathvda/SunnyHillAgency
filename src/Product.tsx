@@ -19,7 +19,7 @@ const products = [
 const Product = () => {
     return (
         <div>
-           <h3 className="text-3xl font-bold">Nos produits</h3>
+           <h3 className="text-3xl font-bold border-b-4 border-b-blue-600 w-1/3 ml-7 mt-2 p-4">Nos produits</h3>
            <div className="flex gap-8 m-8">
            {products.map(a => (  
                <div className="bg-white text-black flex-grow flex-col p-8 rounded-lg shadow-md border border-gray-100">

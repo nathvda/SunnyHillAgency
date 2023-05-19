@@ -2,25 +2,34 @@ import { Fragment } from "react";
 import { Tab } from "@headlessui/react";
 import CallToAction from "./CallToAction";
 
+const QUESTIONS = [
+    {
+        question:"Puis-je me faire rembourser?",
+        answer:"Bien sûr, il suffit de remplir le formulaire prévu à cet effet"
+    },
+    {
+        question:"Est-ce que c'est pas dangereux de se faire atterrir sur le soleil ?",
+        answer:"Mais non tqt ma poule"
+    },
+    {
+        question:"Est-ce qu'on peut vous faire confiance?",
+        answer:"Évidemment !"
+    }
+]
+
 const FAQ = () => {
     return (
         <div>
             <Tab.Group>
-                <Tab.List className="bg-orange-100 p-8">
-                <Tab>
-                    Puis-je me faire rembourser?
-                </Tab>
-                <Tab>
-                    Est-ce que c'est pas dangereux de se faire atterrir sur le soleil ?
-                </Tab>
-                <Tab>
-                    Est-ce qu'on peut vous faire confiance?
-                </Tab>
+                <Tab.List className="bg-orange-100 p-8 flex gap-8">
+                {QUESTIONS.map(a => (<Tab className="bg-blue active:bg-orange-600">
+                    {a.question}
+                </Tab>))}
+              
                 </Tab.List> 
-                <Tab.Panels className="bg-orange-400 p-8">
-        <Tab.Panel>Content 1</Tab.Panel>
-        <Tab.Panel>Content 2</Tab.Panel>
-        <Tab.Panel>Content 3</Tab.Panel>
+       <Tab.Panels className="bg-orange-400 p-8">
+        {QUESTIONS.map(a => (<Tab.Panel>{a.answer}</Tab.Panel>))}
+       
         </Tab.Panels>
             </Tab.Group>
             <CallToAction/>
