@@ -10,6 +10,7 @@ In this repository, I will create a multistep form and link it to a page that wi
 - Headless UI
 - Vite
 - Zustand
+- Zod (resolver & validation schema)
 
 ## Others
 tba. 
