@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Tab } from "@headlessui/react";
+import CallToAction from "./CallToAction";
 
 const FAQ = () => {
     return (
@@ -22,6 +23,7 @@ const FAQ = () => {
         <Tab.Panel>Content 3</Tab.Panel>
         </Tab.Panels>
             </Tab.Group>
+            <CallToAction/>
         </div>
     );
 };
