@@ -12,6 +12,12 @@ import StepTwo from './FormSteps/StepTwo.tsx';
 import StepThree from './FormSteps/StepThree.tsx';
 import Error404 from './Error404.tsx';
 import FAQ from './FAQ.tsx';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'https://rickandmortyapi.com/graphql',
+  cache: new InMemoryCache(),
+})
 
 
 const router = createBrowserRouter(
@@ -37,6 +43,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
+    <ApolloProvider client={client}>
     <RouterProvider router={router}/>
+    </ApolloProvider>
   </React.StrictMode>,
 )

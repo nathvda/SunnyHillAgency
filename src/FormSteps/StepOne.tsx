@@ -12,7 +12,6 @@ const firstSchema = z
   placeOfBirth:z.string().min(1,{message: "Veuillez entrer un lieu de naissance"})
 });
 
-type First = z.infer<typeof firstSchema>
 
 type FormValues = {
   firstName: string
@@ -46,7 +45,7 @@ const StepOne = () => {
 
         <div>
           <label htmlFor="firstName">Prénom</label>
-          <input {...register("firstName")} placeholder="John"/>
+          <input {...register("firstName")} placeholder="John" defaultValue={firstName}/>
           {errors?.firstName && <p className="text-red-800">{errors.firstName.message}</p>}
         </div>
 
