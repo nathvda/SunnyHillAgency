@@ -4,23 +4,23 @@ import Titres from "./Titres";
 
 const products = [
     {
-        name: "Débutant",
-        description:"Un premier voyage unique pour découvrir le soleil et savoir ce qui se cache sous la surface.",
-        price: 150,
-        included: ["Service client", "Premiers soins", "Crème solaire", "Frais dentiste", "Essence"]
+        name: "Demi-pension",
+        description:"Un premier voyage découverte parmi un choix de destinations.",
+        price: 500,
+        included: ["Service client", "Frais de bagage", "Frais hôtelier", "Frais d'animation", "Demi-pension"]
     },
     {
-        name: "Amateur",
-        description:"Vous avez déjà participé à l'aventure et vous voulez retenter l'expérience? Rien de plus facile.",
-        price: 1504,
-        included: ["Service client", "Premiers soins", "Crème solaire", "Frais funéraires", "Essence", "Repas complets"]
+        name: "Pension complète",
+        description:"Voyage tout inclus, parmi un choix de destination en Europe.",
+        price: 1200,
+        included: ["Service client", "Frais de bagage", "Frais hôtelier", "Frais d'animation", "Pension complète", "Assurance annulation", "Assurance contre le vol"]
     },
     
     {
-        name: "Pro",
-        description:"On réfléchit ok patientez un peu.",
-        price: 2350,
-        included: ["Service client", "Premiers soins", "Crème solaire", "Frais funéraires", "Essence", "Repas complets", "Un autocollant pas trop sympa"]
+        name: "Pension complète + ",
+        description:"Voyage tout inclus, parmi un choix de destination en Europe, activités inclues.",
+        price: 2000,
+        included: ["Service client 24h/7 ", "Frais de bagage", "Frais hôtelier", "Frais d'animation", "Pension complète", "Assurance annulation", "Assurance contre le vol", "3 Activités au choix"]
     }
 ]
 
