@@ -3,7 +3,7 @@ import Titres from "./Titres";
 
 const About = () => {
     return (
-        <div className="p-8">
+        <div className="p-8 lg:w-1/2 m-auto">
             <Titres>Sunny Hill</Titres>
             <p className="p-8">Notre agence met à disposition une liste de voyage organisés qui permettront aux voyageurs d'éviter le maximum de problèmes en cours de route. Chez Sunny Hill, on s'occupe de tout : de la réservation à la résolution des problèmes, en passant par les activités sur place. Vous n'avez qu'à poser vos bagages et à vous détendre.</p>
             <Titres>Nos valeurs</Titres>

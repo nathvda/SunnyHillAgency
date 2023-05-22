@@ -54,7 +54,7 @@ const StepOne = () => {
   return (
     <div className="bg-white text-black flex-grow flex-col p-4 rounded-lg lg:w-1/2 m-auto">
       <div className="flex gap-4 justify-center">
-      <div className="w-4 h-4 bg-red-300 rounded-lg"></div><div className="w-4 h-4 rounded-lg bg-gray-300"></div><div className="w-4 h-4 rounded-lg bg-gray-300"></div><div className="w-4 h-4 rounded-lg bg-gray-300"></div></div>
+      <div className="w-4 h-4 bg-blue-300 rounded-lg"></div><div className="w-4 h-4 rounded-lg bg-gray-300"></div><div className="w-4 h-4 rounded-lg bg-gray-300"></div><div className="w-4 h-4 rounded-lg bg-gray-300"></div></div>
       <h2 className="text-3xl font-bold ml-8">Formulaire de contact</h2> 
       <hr className="border-t my-5"/>
 <FormHeading/>   
