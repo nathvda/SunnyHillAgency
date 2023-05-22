@@ -7,8 +7,9 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-background': "linear-gradient(270deg, transparent, #98bfd7), url('./travel.webp')",
-        'faq-background': "url('./plane.webp')"
+        'hero-background': "linear-gradient(270deg, transparent, rgba(0,0,0,0.7)), url('./travel.webp')",
+        'faq-background': "url('./plane.webp')",
+        'about-background': "url('./about.webp')"
     }
   },
   plugins: [],

@@ -28,7 +28,7 @@ const Product = () => {
             <div className="flex flex-col md:flex-row gap-8 m-8 flex-wrap">
             {products.map((a,index)=> (  
                 <div key={index} className="bg-white text-black flex-grow flex-col p-8 rounded-lg shadow-md border border-gray-100 lg:w-1/5 justify-between">
-                <h3 className="font-bold text-xl text-center">{a.name}</h3>
+                <h3 className="font-bold text-2xl text-center mb-8">{a.name}</h3>
                 <hr/>
                 <div>
                 {

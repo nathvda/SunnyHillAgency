@@ -20,7 +20,7 @@ const QUESTIONS = [
 
 const Faq = () => {
   return (<>
-   <div className="flex flex-col justify-center p-8 gap-8 bg-black bg-faq-background text-white bg-cover h-auto flex-grow">
+   <div className="flex flex-col justify-center p-8 gap-8 bg-black bg-faq-background text-white bg-cover h-auto flex-grow lg:h-96">
             <h1 className="text-4xl font-bold lg:text-7xl lg:text-center">Foire aux questions</h1>
        </div>
     <div className="p-8 text-sm flex-col gap-2 flex lg:w-1/2 lg:m-auto">
