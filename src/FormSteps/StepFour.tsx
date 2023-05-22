@@ -6,9 +6,9 @@ const StepFour = () => {
   const formData = useFormStore((store) => store);
   const navigate = useNavigate();
 
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     console.log(formData);
-    navigate("/form/confirmation", { replace: true });
+    navigate("/form/confirm", { replace: true });
   };
 
   const PreviousStep = () => {
@@ -36,7 +36,7 @@ const StepFour = () => {
       <div><b>Lieu de naissance</b>: {formData.placeOfBirth}</div>
       <div><b>Code promo</b>: {formData.codePromo}</div>
       <div><b>Numéro de téléphone</b>: {formData.phoneNumber}</div>
-
+      <div><b>Email address</b>: {formData.emailAddress.slice(0,2).concat('**********')}</div>
       <form
         className="bg-white bg-opacity-10 mb-2 mt-2 m-auto backdrop-blur-md flex-col gap-4"
         onSubmit={onSubmit}

@@ -19,11 +19,15 @@ const QUESTIONS = [
 ];
 
 const Faq = () => {
-  return (
+  return (<>
+   <div className="flex flex-col justify-center p-8 gap-8 bg-black bg-faq-background text-white bg-cover h-auto flex-grow">
+            <h1 className="text-4xl font-bold lg:text-7xl lg:text-center">Foire aux questions</h1>
+       </div>
     <div className="p-8 text-sm flex-col gap-2 flex">
+        
       {QUESTIONS.map((a) => (
         <Disclosure>
-          <Disclosure.Button className="border border-gray-100 p-8 rounded-md shadow-sm border-b-red-600 border-b-2 lg:text-xl lg:flex lg:items-center lg:gap-8">
+          <Disclosure.Button className="border border-gray-100 p-8 rounded-md shadow-sm border-b-blue-600 border-b-2 lg:text-xl lg:flex lg:items-center lg:gap-8">
             <AiFillQuestionCircle /> {a.question}
           </Disclosure.Button>
           <Disclosure.Panel className="bg-gray-100 p-8  lg:text-xl">
@@ -33,6 +37,7 @@ const Faq = () => {
       ))}
       <CallToAction />
     </div>
+    </>
   );
 };
 

@@ -8,12 +8,14 @@ import FormHeading from "../FormHeading";
 
 const resolverThree = z.object({
   promoCode: z.string().min(12, { message: "Entrez un code promo valide" }),
-  phoneNumber:z.string().min(12,{message:"Veuillez rentrer un numéro de téléphone valide"})
+  phoneNumber:z.string().min(12,{message:"Veuillez entrer un numéro de téléphone valide"}),
+  emailAddress:z.string().email({message:"Veuillez entrer une adresse mail valide."})
 });
 
 type FormValues = {
-  promoCode: string;
-  phoneNumber: string;
+  promoCode: string
+  phoneNumber: string
+  emailAddress: string
 };
 
 const StepThree = () => {
@@ -28,6 +30,11 @@ const StepThree = () => {
     state.updatePhoneNumber,
   ]);
 
+  const [emailAddress, updateEmailAddress] = useFormStore((state) => [
+    state.emailAddress,
+    state.updateEmailAddress,
+  ]);
+
   const {
     register,
     handleSubmit,
@@ -40,6 +47,7 @@ const StepThree = () => {
     console.log(data);
     updateCodePromo(data.promoCode);
     updatePhoneNumber(data.phoneNumber);
+    updateEmailAddress(data.emailAddress);
     navigate("/form/step-four", { replace: true });
   });
 

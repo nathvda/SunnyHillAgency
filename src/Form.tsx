@@ -8,6 +8,7 @@ const Form = () => {
     return (
         <div className="flex-grow">
             <div className="bg-red-100 p-8 flex justify-evenly">
+            [debugging only]
             <Link to="/form/">1</Link>
             <Link to="/form/step-two">2</Link>
             <Link to="/form/step-three">3</Link>
