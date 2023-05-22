@@ -8,8 +8,8 @@ export default {
     extend: {
       backgroundImage: {
         'hero-background': "linear-gradient(270deg, transparent, rgba(0,0,0,0.7)), url('./travel.webp')",
-        'faq-background': "url('./plane.webp')",
-        'about-background': "url('./about.webp')"
+        'faq-background': "linear-gradient(180deg, transparent, rgba(0,0,0,0.7)), url('./plane.webp')",
+        'about-background': "linear-gradient(180deg, transparent, rgba(0,0,0,0.7)), url('./about.webp')"
     }
   },
   plugins: [],
