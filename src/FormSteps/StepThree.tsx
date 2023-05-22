@@ -4,20 +4,29 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Submit from "../Submit";
 import { useFormStore } from "../store";
+import FormHeading from "../FormHeading";
 
 const resolverThree = z.object({
   promoCode: z.string().min(12, { message: "Entrez un code promo valide" }),
+  phoneNumber:z.string().min(12,{message:"Veuillez rentrer un numéro de téléphone valide"})
 });
 
 type FormValues = {
   promoCode: string;
+  phoneNumber: string;
 };
 
 const StepThree = () => {
   const navigate = useNavigate();
-  const [codePromo, updateCodePromo] = useFormStore(
-    (state) => [state.codePromo, state.updateCodePromo]
-  )
+  const [codePromo, updateCodePromo] = useFormStore((state) => [
+    state.codePromo,
+    state.updateCodePromo,
+  ]);
+
+    const [phoneNumber, updatePhoneNumber] = useFormStore((state) => [
+    state.phoneNumber,
+    state.updatePhoneNumber,
+  ]);
 
   const {
     register,
@@ -29,8 +38,9 @@ const StepThree = () => {
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
-    updateCodePromo(data.promoCode)
-    navigate('/form/step-four', {replace:true});
+    updateCodePromo(data.promoCode);
+    updatePhoneNumber(data.phoneNumber);
+    navigate("/form/step-four", { replace: true });
   });
 
   const PreviousStep = () => {
@@ -47,13 +57,25 @@ const StepThree = () => {
       </div>
 
       <h2 className="text-3xl font-bold ml-8">Prêts à décoller ?</h2>
-      <hr className="border-t my-5"/>
-      <p>Bienvenue sur le formulaire de réservation de SunnyHill ! N'hésitez pas à nous contacter si vous avez la moindre question, nous nous ferons un plaisir de ne pas vous répondre.</p>
-      
+      <hr className="border-t my-5" />
+      <FormHeading/>
+
       <form
         className="bg-white bg-opacity-10 mb-2 mt-2 m-auto backdrop-blur-md flex-col gap-4"
         onSubmit={onSubmit}
       >
+        <div className="border-b pt-4 pb-4 flex justify-between">
+          <label htmlFor="phoneNumber">Numéro de téléphone</label>
+          <input {...register("phoneNumber")} placeholder="+32 XXX XXX XXX" />
+        </div>
+        {errors?.phoneNumber && <p>{errors?.phoneNumber.message}</p>}
+
+        <div className="border-b pt-4 pb-4 flex justify-between">
+          <label htmlFor="emailAddress">Adresse email</label>
+          <input {...register("emailAddress")} placeholder="youremailaddress@xyz.com" />
+        </div>
+        {errors?.emailAddress && <p>{errors?.emailAddress.message}</p>}
+
         <div className="border-b pt-4 pb-4 flex justify-between">
           <label htmlFor="promoCode">Avez-vous un code promo?</label>
           <input {...register("promoCode")} placeholder="XXX-XXXX-XXX" />

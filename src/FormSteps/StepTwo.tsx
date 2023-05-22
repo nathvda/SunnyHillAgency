@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Listbox } from "@headlessui/react";
 // import { useQuery, gql } from "@apollo/client";
 import Submit from "../Submit";
+import FormHeading from "../FormHeading";
 
 const secondSchema = z.object({
   reasonForTravelling: z
@@ -32,9 +33,10 @@ type FormValues = {
 // `;
 
 const options = [
-  { id: 1, reason: "Curiosity", unavailable: false },
-  { id: 2, reason: "Work", unavailable: false },
-  { id: 3, reason: "Despair", unavailabl: false },
+  { id: 1, reason: "Loisir", unavailable: false },
+  { id: 2, reason: "Travail", unavailable: false },
+  { id: 3, reason: "Découverte", unavailabl: false },
+  { id: 4, reason: "Autre", unavailabl: false },
 ];
 
 const StepTwo = () => {
@@ -72,6 +74,9 @@ const StepTwo = () => {
         <div className="w-4 h-4 rounded-lg bg-gray-300"></div>
       </div>
       <h2 className="text-3xl font-bold ml-8">Pourquoi voyagez-vous?</h2>
+      <hr className="border-t my-5" />
+      <FormHeading/>
+      
       <form onSubmit={onSubmit}>
         <div>
           <Controller

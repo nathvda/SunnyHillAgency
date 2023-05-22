@@ -6,6 +6,7 @@ interface FormState {
         dateOfBirth:string
         codePromo:string
         placeOfBirth:string
+        phoneNumber:string
     }
 
      type Action = {
@@ -14,6 +15,7 @@ interface FormState {
         updateDateOfBirth: (date : FormState['dateOfBirth']) => void
         updateCodePromo: (codePromo : FormState['codePromo']) => void
         updatePlaceOfBirth: (placeOfBirth : FormState['placeOfBirth']) => void
+        updatePhoneNumber:(phoneNumber: FormState['phoneNumber']) => void
     }
 
 
@@ -23,6 +25,7 @@ export const useFormStore = create<FormState & Action>((set) => ({
                     dateOfBirth:"",
                     codePromo:"",
                     placeOfBirth:"",
+                    phoneNumber:"",
                 updateFirstName: (firstName) => 
                     set(() => ({firstName:firstName}))
                 ,
@@ -37,5 +40,8 @@ export const useFormStore = create<FormState & Action>((set) => ({
                 ,
                 updateCodePromo : (code) =>
                 set(() => ({codePromo:code}))
+                ,
+                updatePhoneNumber : (number) =>
+                set(() => ({phoneNumber:number}))
                 ,
             }))

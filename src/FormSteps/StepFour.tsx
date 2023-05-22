@@ -26,14 +26,16 @@ const StepFour = () => {
       <h2 className="text-3xl font-bold ml-8">Confirmer vos informations</h2>
       <hr className="border-t my-5" />
       <p>
-       Veuillez relire et confirmer les informations ci-dessous pour être certain que nous pourrons traiter votre demande dans les plus brefs délais. 
+       C'est presque terminé ! Veuillez s'il vous plaît relire et confirmer les informations ci-dessous pour être certain que nous pourrons traiter votre demande dans les meilleures conditions. 
       </p>
+      <hr className="border-t my-5" />
       
       <div><b>Prénom</b>: {formData.firstName}</div>
       <div><b>Nom</b>: {formData.lastName}</div>
       <div><b>Date de naissance</b>: {new Date(formData.dateOfBirth).toLocaleDateString()}</div>
-      <div><b>Lieu de naissance</b>: tba.</div>
+      <div><b>Lieu de naissance</b>: {formData.placeOfBirth}</div>
       <div><b>Code promo</b>: {formData.codePromo}</div>
+      <div><b>Numéro de téléphone</b>: {formData.phoneNumber}</div>
 
       <form
         className="bg-white bg-opacity-10 mb-2 mt-2 m-auto backdrop-blur-md flex-col gap-4"

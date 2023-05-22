@@ -4,6 +4,7 @@ import { useFormStore } from "../store";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Submit from "../Submit";
+import FormHeading from "../FormHeading";
 
 const firstSchema = z
 .object({
@@ -56,8 +57,8 @@ const StepOne = () => {
       <div className="w-4 h-4 bg-red-300 rounded-lg"></div><div className="w-4 h-4 rounded-lg bg-gray-300"></div><div className="w-4 h-4 rounded-lg bg-gray-300"></div><div className="w-4 h-4 rounded-lg bg-gray-300"></div></div>
       <h2 className="text-3xl font-bold ml-8">Formulaire de contact</h2> 
       <hr className="border-t my-5"/>
-      <p>Bienvenue sur le formulaire de contact de SunnyHill ! N'hésitez pas à nous contacter si vous avez la moindre question, nous nous ferons un plaisir de ne pas vous répondre.</p>
-      <form className="bg-white bg-opacity-10 mb-2 mt-2 m-auto backdrop-blur-md flex-col gap-4" onSubmit={onSubmit}>
+<FormHeading/>   
+   <form className="bg-white bg-opacity-10 mb-2 mt-2 m-auto backdrop-blur-md flex-col gap-4" onSubmit={onSubmit}>
         
 
         <div className="border-b pt-4 pb-4 flex justify-between">
