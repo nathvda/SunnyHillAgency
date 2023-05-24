@@ -1,5 +1,5 @@
 import { Controller, useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,10 +11,10 @@ import FormHeading from "../FormHeading";
 const secondSchema = z.object({
   reasonForTravelling: z
     .string()
-    .min(1, { message: "Veuillez choisir une option" }),
+    .min(0,{ message: "Veuillez choisir une option" }),
   sender: z
     .string()
-    .min(1, { message: "Vous devez déterminer qui vous envoie" }),
+    .min(0,{ message: "Vous devez déterminer qui vous envoie" }),
 });
 
 type FormValues = {
@@ -55,6 +55,7 @@ const StepTwo = () => {
   });
   const onSubmit = handleSubmit((data) => {
     console.log(data);
+    console.log(data);
     navigate("/form/step-three", { replace: true });
   });
 
@@ -80,15 +81,15 @@ const StepTwo = () => {
       <form onSubmit={onSubmit}>
         <div>
           <Controller
-            render={() => (
-              <Listbox value={selectedReason} onChange={setSelectedReason}>
+            render={({field:{onChange,value,name}}) => (
+              <Listbox value={value} onChange={onChange} name={name}>
                 <Listbox.Label>Raison du départ:</Listbox.Label>
-                <Listbox.Button>{selectedReason.reason}</Listbox.Button>
+                <Listbox.Button>{value}</Listbox.Button>
                 <Listbox.Options>
                   {options.map((person) => (
                     <Listbox.Option
                       key={person.id}
-                      value={person}
+                      value={person.reason}
                       disabled={person.unavailable}
                     >
                       {person.reason}
@@ -106,13 +107,13 @@ const StepTwo = () => {
         </div>
         <div>
           <Controller
-            render={() => (
-              <Listbox value={selectedSender} onChange={setSelectedSender}>
+            render={({field:{onChange,value,name}}) => (
+              <Listbox value={value} onChange={onChange} name={name}>
                 <Listbox.Label>Qui vous envoie:</Listbox.Label>
-                <Listbox.Button>{selectedSender.reason}</Listbox.Button>
+                <Listbox.Button>{value}</Listbox.Button>
                 <Listbox.Options>
-                  {options.map((person: { reason: string }) => (
-                    <Listbox.Option key={person.reason} value={person.reason}>
+                  {options.map((person) => (
+                    <Listbox.Option key={person.id} value={person.reason}>
                       {person.reason}
                     </Listbox.Option>
                   ))}
