@@ -19,7 +19,7 @@ tba.
 tba.
 
 ## Known issues
-tba.
+- [ ] The errors in the second part of the form are not working properly yet and only display "required".
 
 ## Changelog 
 tba.

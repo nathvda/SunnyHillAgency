@@ -84,15 +84,17 @@ const StepTwo = () => {
             render={({field:{onChange,value,name}}) => (
               <Listbox value={value} onChange={onChange} name={name}>
                 <Listbox.Label>Raison du départ:</Listbox.Label>
-                <Listbox.Button>{value}</Listbox.Button>
-                <Listbox.Options>
+                <Listbox.Button>{value || "Choisissez votre raison"}</Listbox.Button>
+                <Listbox.Options className="absolute rounded-md border-b-2 border-blue-100 left-10">
                   {options.map((person) => (
                     <Listbox.Option
                       key={person.id}
                       value={person.reason}
                       disabled={person.unavailable}
-                    >
-                      {person.reason}
+                      as={Fragment}
+                    >{({active,selected}) => (
+                      <li className="bg-white shadow-sm p-4 border-t border-gray-100 hover:bg-blue-100">{person.reason}</li>
+                      )}
                     </Listbox.Option>
                   ))}
                 </Listbox.Options>
@@ -110,7 +112,7 @@ const StepTwo = () => {
             render={({field:{onChange,value,name}}) => (
               <Listbox value={value} onChange={onChange} name={name}>
                 <Listbox.Label>Qui vous envoie:</Listbox.Label>
-                <Listbox.Button>{value}</Listbox.Button>
+                <Listbox.Button>{value || "Choisissez votre responsable"}</Listbox.Button>
                 <Listbox.Options>
                   {options.map((person) => (
                     <Listbox.Option key={person.id} value={person.reason}>
