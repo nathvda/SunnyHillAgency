@@ -8,6 +8,8 @@ interface FormState {
         placeOfBirth:string
         phoneNumber:string
         emailAddress:string
+        reasonForTravelling:string
+        sender:string
     }
 
      type Action = {
@@ -18,6 +20,8 @@ interface FormState {
         updatePlaceOfBirth: (placeOfBirth : FormState['placeOfBirth']) => void
         updatePhoneNumber:(phoneNumber: FormState['phoneNumber']) => void
         updateEmailAddress:(emailAddress: FormState['emailAddress']) => void
+        updateReason:(reasonForTravelling: FormState['reasonForTravelling']) => void
+        updateSender:(sender: FormState['sender']) => void
     }
 
 
@@ -29,6 +33,8 @@ export const useFormStore = create<FormState & Action>((set) => ({
                     placeOfBirth:"",
                     phoneNumber:"",
                     emailAddress:"",
+                    sender:"",
+                    reasonForTravelling:"",
                 updateFirstName: (firstName) => 
                     set(() => ({firstName:firstName}))
                 ,
@@ -50,4 +56,9 @@ export const useFormStore = create<FormState & Action>((set) => ({
                 updateEmailAddress : (email) =>
                 set(() => ({emailAddress:email}))
                 ,
+                updateReason: (reasonForTravelling) => 
+                set(() => ({reasonForTravelling:reasonForTravelling})),
+                updateSender: (sender) => {
+                    set(() => ({sender:sender}))
+                }
             }))

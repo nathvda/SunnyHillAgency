@@ -34,6 +34,8 @@ const StepFour = () => {
       <div><b>Nom</b>: {formData.lastName}</div>
       <div><b>Date de naissance</b>: {new Date(formData.dateOfBirth).toLocaleDateString()}</div>
       <div><b>Lieu de naissance</b>: {formData.placeOfBirth}</div>
+      <div><b>Raison du voyage</b>: {formData.reasonForTravelling}</div>
+      <div><b>Responsable</b>: {formData.sender}</div>
       <div><b>Code promo</b>: {formData.codePromo}</div>
       <div><b>Numéro de téléphone</b>: {formData.phoneNumber}</div>
       <div><b>Email address</b>: {formData.emailAddress.slice(0,2).concat('**********')}</div>

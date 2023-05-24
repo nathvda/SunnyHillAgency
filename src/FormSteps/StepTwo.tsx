@@ -7,6 +7,7 @@ import { Listbox } from "@headlessui/react";
 // import { useQuery, gql } from "@apollo/client";
 import Submit from "../Submit";
 import FormHeading from "../FormHeading";
+import { useFormStore } from "../store";
 
 const secondSchema = z.object({
   reasonForTravelling: z
@@ -41,9 +42,11 @@ const options = [
 
 const StepTwo = () => {
   const navigate = useNavigate();
-  const [selectedReason, setSelectedReason] = useState(options[0]);
   // const { loading, error, data } = useQuery(GET_NAMES);
-  const [selectedSender, setSelectedSender] = useState(options[0]);
+
+  const [reason,updateReason] = useFormStore((state) => [state.reasonForTravelling, state.updateReason]);
+  const [sender,updateSender] = useFormStore((state) => [state.sender, state.updateSender]);
+
 
   const {
     control,
@@ -54,8 +57,8 @@ const StepTwo = () => {
     resolver: zodResolver(secondSchema),
   });
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
-    console.log(data);
+    updateSender(data.sender);
+    updateReason(data.reasonForTravelling);
     navigate("/form/step-three", { replace: true });
   });
 
@@ -84,20 +87,20 @@ const StepTwo = () => {
             render={({field:{onChange,value,name}}) => (
               <Listbox value={value} onChange={onChange} name={name}>
                 <Listbox.Label>Raison du départ:</Listbox.Label>
-                <Listbox.Button>{value || "Choisissez votre raison"}</Listbox.Button>
-                <Listbox.Options className="absolute rounded-md border-b-2 border-blue-100 left-10">
+                <Listbox.Button className="relative bg-white p-4 text-center border border-gray-100">{value || reason || "Choisissez votre raison"}
+                <Listbox.Options className="absolute rounded-md border-b-2 border-blue-100">
                   {options.map((person) => (
                     <Listbox.Option
                       key={person.id}
                       value={person.reason}
                       disabled={person.unavailable}
                       as={Fragment}
-                    >{({active,selected}) => (
+                    >
                       <li className="bg-white shadow-sm p-4 border-t border-gray-100 hover:bg-blue-100">{person.reason}</li>
-                      )}
                     </Listbox.Option>
                   ))}
-                </Listbox.Options>
+                </Listbox.Options></Listbox.Button>
+                
               </Listbox>
             )}
             {...register("reasonForTravelling")}
@@ -112,7 +115,7 @@ const StepTwo = () => {
             render={({field:{onChange,value,name}}) => (
               <Listbox value={value} onChange={onChange} name={name}>
                 <Listbox.Label>Qui vous envoie:</Listbox.Label>
-                <Listbox.Button>{value || "Choisissez votre responsable"}</Listbox.Button>
+                <Listbox.Button>{value || sender || "Choisissez votre responsable"}</Listbox.Button>
                 <Listbox.Options>
                   {options.map((person) => (
                     <Listbox.Option key={person.id} value={person.reason}>
