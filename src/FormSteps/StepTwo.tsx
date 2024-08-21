@@ -1,21 +1,21 @@
+import { Listbox } from "@headlessui/react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Fragment } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Listbox } from "@headlessui/react";
 // import { useQuery, gql } from "@apollo/client";
-import Submit from "../Submit";
 import FormHeading from "../FormHeading";
 import { useFormStore } from "../store";
+import Submit from "../Submit";
 
 const secondSchema = z.object({
   reasonForTravelling: z
     .string()
-    .min(0,{ message: "Veuillez choisir une option" }),
+    .min(0, { message: "Veuillez choisir une option" }),
   sender: z
     .string()
-    .min(0,{ message: "Vous devez déterminer qui vous envoie" }),
+    .min(0, { message: "Vous devez déterminer qui vous envoie" }),
 });
 
 type FormValues = {
@@ -44,9 +44,14 @@ const StepTwo = () => {
   const navigate = useNavigate();
   // const { loading, error, data } = useQuery(GET_NAMES);
 
-  const [reason,updateReason] = useFormStore((state) => [state.reasonForTravelling, state.updateReason]);
-  const [sender,updateSender] = useFormStore((state) => [state.sender, state.updateSender]);
-
+  const [reason, updateReason] = useFormStore((state) => [
+    state.reasonForTravelling,
+    state.updateReason,
+  ]);
+  const [sender, updateSender] = useFormStore((state) => [
+    state.sender,
+    state.updateSender,
+  ]);
 
   const {
     control,
@@ -79,28 +84,31 @@ const StepTwo = () => {
       </div>
       <h2 className="text-3xl font-bold ml-8">Pourquoi voyagez-vous?</h2>
       <hr className="border-t my-5" />
-      <FormHeading/>
-      
+      <FormHeading />
+
       <form onSubmit={onSubmit}>
         <div>
           <Controller
-            render={({field:{onChange,value,name}}) => (
+            render={({ field: { onChange, value, name } }) => (
               <Listbox value={value} onChange={onChange} name={name}>
                 <Listbox.Label>Raison du départ:</Listbox.Label>
-                <Listbox.Button className="relative bg-white p-4 text-center border border-gray-100">{value || reason || "Choisissez votre raison"}
-                <Listbox.Options className="absolute rounded-md border-b-2 border-blue-100">
-                  {options.map((person) => (
-                    <Listbox.Option
-                      key={person.id}
-                      value={person.reason}
-                      disabled={person.unavailable}
-                      as={Fragment}
-                    >
-                      <li className="bg-white shadow-sm p-4 border-t border-gray-100 hover:bg-blue-100">{person.reason}</li>
-                    </Listbox.Option>
-                  ))}
-                </Listbox.Options></Listbox.Button>
-                
+                <Listbox.Button className="relative bg-white p-4 text-center border border-gray-100">
+                  {value || reason || "Choisissez votre raison"}
+                  <Listbox.Options className="absolute rounded-md border-b-2 border-blue-100">
+                    {options.map((person) => (
+                      <Listbox.Option
+                        key={person.id}
+                        value={person.reason}
+                        disabled={person.unavailable}
+                        as={Fragment}
+                      >
+                        <li className="bg-white shadow-sm p-4 border-t border-gray-100 hover:bg-blue-100">
+                          {person.reason}
+                        </li>
+                      </Listbox.Option>
+                    ))}
+                  </Listbox.Options>
+                </Listbox.Button>
               </Listbox>
             )}
             {...register("reasonForTravelling")}
@@ -112,10 +120,12 @@ const StepTwo = () => {
         </div>
         <div>
           <Controller
-            render={({field:{onChange,value,name}}) => (
+            render={({ field: { onChange, value, name } }) => (
               <Listbox value={value} onChange={onChange} name={name}>
                 <Listbox.Label>Qui vous envoie:</Listbox.Label>
-                <Listbox.Button>{value || sender || "Choisissez votre responsable"}</Listbox.Button>
+                <Listbox.Button>
+                  {value || sender || "Choisissez votre responsable"}
+                </Listbox.Button>
                 <Listbox.Options>
                   {options.map((person) => (
                     <Listbox.Option key={person.id} value={person.reason}>

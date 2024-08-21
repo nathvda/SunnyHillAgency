@@ -1,21 +1,25 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import FormHeading from "../FormHeading";
 import Submit from "../Submit";
 import { useFormStore } from "../store";
-import FormHeading from "../FormHeading";
 
 const resolverThree = z.object({
   promoCode: z.string().min(12, { message: "Entrez un code promo valide" }),
-  phoneNumber:z.string().min(12,{message:"Veuillez entrer un numéro de téléphone valide"}),
-  emailAddress:z.string().email({message:"Veuillez entrer une adresse mail valide."})
+  phoneNumber: z
+    .string()
+    .min(12, { message: "Veuillez entrer un numéro de téléphone valide" }),
+  emailAddress: z
+    .string()
+    .email({ message: "Veuillez entrer une adresse mail valide." }),
 });
 
 type FormValues = {
-  promoCode: string
-  phoneNumber: string
-  emailAddress: string
+  promoCode: string;
+  phoneNumber: string;
+  emailAddress: string;
 };
 
 const StepThree = () => {
@@ -25,7 +29,7 @@ const StepThree = () => {
     state.updateCodePromo,
   ]);
 
-    const [phoneNumber, updatePhoneNumber] = useFormStore((state) => [
+  const [phoneNumber, updatePhoneNumber] = useFormStore((state) => [
     state.phoneNumber,
     state.updatePhoneNumber,
   ]);
@@ -66,7 +70,7 @@ const StepThree = () => {
 
       <h2 className="text-3xl font-bold ml-8">Prêts à décoller ?</h2>
       <hr className="border-t my-5" />
-      <FormHeading/>
+      <FormHeading />
 
       <form
         className="bg-white bg-opacity-10 mb-2 mt-2 m-auto backdrop-blur-md flex-col gap-4"
@@ -74,19 +78,31 @@ const StepThree = () => {
       >
         <div className="border-b pt-4 pb-4 flex justify-between">
           <label htmlFor="phoneNumber">Numéro de téléphone</label>
-          <input {...register("phoneNumber")} placeholder="+32 XXX XXX XXX" />
+          <input
+            {...register("phoneNumber")}
+            placeholder="+32 XXX XXX XXX"
+            defaultValue={phoneNumber}
+          />
         </div>
         {errors?.phoneNumber && <p>{errors?.phoneNumber.message}</p>}
 
         <div className="border-b pt-4 pb-4 flex justify-between">
           <label htmlFor="emailAddress">Adresse email</label>
-          <input {...register("emailAddress")} placeholder="youremailaddress@xyz.com" />
+          <input
+            {...register("emailAddress")}
+            placeholder="youremailaddress@xyz.com"
+            defaultValue={emailAddress}
+          />
         </div>
         {errors?.emailAddress && <p>{errors?.emailAddress.message}</p>}
 
         <div className="border-b pt-4 pb-4 flex justify-between">
           <label htmlFor="promoCode">Avez-vous un code promo?</label>
-          <input {...register("promoCode")} placeholder="XXX-XXXX-XXX" />
+          <input
+            {...register("promoCode")}
+            placeholder="XXX-XXXX-XXX"
+            defaultValue={codePromo}
+          />
         </div>
         {errors?.promoCode && <p>{errors?.promoCode.message}</p>}
 
